@@ -65,11 +65,13 @@
         NSLog(@" buttonIndex 重试");
     }else if (buttonIndex == 1)
     {
-        [self.zctView hidenKeyboard];
-        UIViewController *vc = [[UIViewController alloc]init];
-        vc.view.backgroundColor = [UIColor redColor];
-        [self.navigationController pushViewController:vc animated:YES];
-        NSLog(@" buttonIndex 忘了密码");
+//        [self.zctView hidenKeyboard];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            UIViewController *vc = [[UIViewController alloc]init];
+            vc.view.backgroundColor = [UIColor redColor];
+            [self.navigationController pushViewController:vc animated:YES];
+            NSLog(@" buttonIndex 忘了密码");
+        });
     }
 }
 

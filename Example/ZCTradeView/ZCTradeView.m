@@ -102,7 +102,7 @@
     UITextField *responsder = [[UITextField alloc] init];
     responsder.delegate = self;
     responsder.keyboardType = UIKeyboardTypeNumberPad;
-    [responsder becomeFirstResponder];
+    
     [self addSubview:responsder];
     self.responsder = responsder;
 }
@@ -199,6 +199,8 @@ static NSString *tempStr;
     } else {
         marginTop = 140;
     }
+    
+    [self.responsder becomeFirstResponder];
     
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.inputView.transform = CGAffineTransformMakeTranslation(0, marginTop - self.inputView.y);
